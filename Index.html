@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Anil Rathod — Senior Software Engineer specializing in Banking, Insurance, FinTech, and Enterprise Systems. Building scalable, mission-critical software.">
+<title>Anil Rathod — Senior Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #09090B;
+  --panel: #111216;
+  --panel2: #16181D;
+  --text: #FFFFFF;
+  --muted: #A1A1AA;
+  --accent: #2563EB;
+  --accent-light: #3B82F6;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.12);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --nav-h: 72px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+#bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+body{
+    background:#050816;
+    overflow-x:hidden;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent); color: #fff; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 6vw;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(0px);
+}
+nav.scrolled {
+  height: 56px;
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  margin: 0 auto;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-cta {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s; }
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 6vw;
+  padding-top: var(--nav-h);
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.hero-mesh {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(37,99,235,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(37,99,235,0.07) 0%, transparent 50%);
+  animation: meshPulse 8s ease-in-out infinite alternate;
+}
+@keyframes meshPulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.04); }
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 80%);
+  opacity: 0.4;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(37,99,235,0.25);
+  border-radius: 100px;
+  padding: 6px 14px 6px 8px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-light);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-h1 .accent-line { color: var(--accent-light); }
+.hero-p {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 500px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-actions {
+  margin-top: 2.5rem;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(37,99,235,0);
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.35);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-ghost:hover { color: var(--text); }
+.btn-ghost svg { width: 14px; height: 14px; }
+
+/* ── HERO VISUAL ── */
+.hero-visual {
+  position: relative;
+  animation: fadeIn 1s 0.4s ease both;
+}
+.arch-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.arch-svg-wrap { width: 100%; }
+
+/* ── METRICS ── */
+.hero-metrics {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  width: calc(100% - 12vw);
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.metric-item {
+  background: var(--panel);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.metric-item:hover { background: var(--panel2); }
+.metric-num {
+  font-family: var(--font-display);
+  font-weight: 710;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.metric-num .accent { color: var(--accent-light); }
+.metric-label {
+  font-size: clamp(0.62rem, 1.5vw, 0.8rem);
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.metric-label-mobile { display: none; }
+
+@media (max-width: 640px) {
+  .hero-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: calc(100% - 10vw);
+    border-radius: 10px;
+  }
+  .metric-item {
+    padding: 1.4rem 0.75rem;
+  }
+  .metric-num {
+    font-size: 1.6rem;
+  }
+  .metric-label { font-size: 0.68rem; letter-spacing: 0; }
+  .metric-label-full { display: none; }
+  .metric-label-mobile { display: block; }
+}
+
+@media (max-width: 380px) {
+  .metric-num { font-size: 1.35rem; }
+  .metric-label { font-size: 0.62rem; }
+}
+
+/* ── SECTION BASICS ── */
+section { padding: 7rem 6vw; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.section-subtitle {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/* ── ABOUT ── */
+#about { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem; }
+.about-copy p { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.2rem; }
+.about-copy p strong { color: var(--text); font-weight: 500; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
+.tag {
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.tag:hover { border-color: var(--accent); color: var(--accent-light); }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.about-stat { background: var(--panel2); padding: 1.8rem 2rem; }
+.about-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; }
+.about-stat-num .accent { color: var(--accent-light); }
+.about-stat-desc { font-size: 0.82rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+/* ── EXPERTISE ── */
+#expertise {}
+.expertise-header { margin-bottom: 4rem; }
+.expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.expertise-card {
+  background: var(--panel);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.expertise-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at var(--mx, 50%) var(--my, 50%), rgba(37,99,235,0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.expertise-card:hover::before { opacity: 1; }
+.expertise-card:hover { background: var(--panel2); }
+.exp-icon {
+  width: 44px; height: 44px;
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.exp-icon svg { width: 20px; height: 20px; stroke: var(--accent-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.exp-title { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; margin-bottom: 0.75rem; }
+.exp-focus { font-size: 0.82rem; color: var(--accent-light); margin-bottom: 1.5rem; font-weight: 400; }
+.exp-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.exp-item { font-size: 0.76rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; }
+
+/* ── CASE STUDIES ── */
+#case-studies { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cs-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.cs-card {
+  background: var(--bg);
+  padding: 0;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.cs-card:hover { background: #0d0d10; }
+.cs-header {
+  display: grid; grid-template-columns: 120px 1fr auto;
+  align-items: center; gap: 2rem;
+  padding: 2.5rem 3rem;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.cs-card.open .cs-header { border-color: var(--border); }
+.cs-num { font-family: var(--font-display); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--accent-light); text-transform: uppercase; }
+.cs-title-wrap {}
+.cs-title { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; }
+.cs-industry { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+.cs-impact-badge {
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 0.76rem;
+  color: var(--accent-light);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.cs-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.cs-card.open .cs-body { max-height: 600px; }
+.cs-body-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: var(--border); }
+.cs-col { background: var(--panel2); padding: 2rem 2.5rem; }
+.cs-col-title { font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+.cs-col-text { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+.cs-col-text strong { color: var(--text); font-weight: 500; }
+.cs-tech-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+.cs-tech-pill { font-size: 0.72rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 4px; padding: 3px 9px; }
+.cs-chevron { transition: transform 0.3s; flex-shrink: 0; }
+.cs-card.open .cs-chevron { transform: rotate(180deg); }
+
+/* ── PRINCIPLES ── */
+#principles {}
+.principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.principle-card {
+  background: var(--panel);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+}
+.principle-card:hover { background: var(--panel2); }
+.p-icon {
+  width: 40px; height: 40px;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.p-icon svg { width: 24px; height: 24px; stroke: var(--accent-light); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.p-title { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.6rem; }
+.p-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TECHNOLOGY ── */
+#technology { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.tech-categories { display: flex; gap: 10px; flex-wrap: wrap; margin: 3rem 0 2rem; }
+.tech-cat-btn {
+  font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 8px 18px; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  cursor: pointer; transition: all 0.2s;
+}
+.tech-cat-btn:hover, .tech-cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.tech-item {
+  background: var(--bg);
+  padding: 1.5rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.6rem; text-align: center;
+  cursor: default;
+  transition: background 0.2s;
+  position: relative; overflow: hidden;
+}
+.tech-item:hover { background: var(--panel2); }
+.tech-item:hover .tech-tooltip { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.tech-logo { font-size: 1.6rem; }
+.tech-name { font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; color: var(--text); }
+.tech-cat-label { font-size: 0.7rem; color: var(--muted); }
+.tech-tooltip {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: var(--accent);
+  padding: 10px;
+  font-size: 0.72rem; color: #fff; line-height: 1.4; text-align: center;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+}
+
+/* ── EXPERIENCE COMPANY BLOCKS ── */
+.company-block { margin-top: 4rem; }
+.company-block:first-of-type { margin-top: 3rem; }
+.company-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.company-badge {
+  font-family: var(--font-display);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+  background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3);
+  color: var(--accent-light);
+}
+.company-badge.current {
+  background: rgba(34,197,94,0.12); border-color: rgba(34,197,94,0.25);
+  color: #4ade80;
+}
+.company-name { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; }
+.company-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+/* ── EXPERIENCE ── */
+#experience {}
+.exp-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.exp-card {
+  background: var(--panel);
+  padding: 3rem;
+  transition: background 0.3s;
+  position: relative;
+}
+.exp-card:hover { background: var(--panel2); }
+.exp-card-role { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; margin-bottom: 4px; }
+.exp-card-domain {
+  display: inline-block;
+  font-size: 0.75rem; font-weight: 500;
+  background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.2);
+  color: var(--accent-light);
+  border-radius: 4px; padding: 3px 10px;
+  margin-bottom: 1.5rem;
+}
+.exp-card-resp { list-style: none; margin-bottom: 1.5rem; }
+.exp-card-resp li {
+  font-size: 0.88rem; color: var(--muted); line-height: 1.6;
+  padding: 0.3rem 0; padding-left: 1.2rem; position: relative;
+}
+.exp-card-resp li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+.exp-card-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+.stack-pill { font-size: 0.72rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; }
+.exp-card-impact { font-size: 0.82rem; color: var(--text); border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: 0.5rem; font-weight: 400; }
+.exp-card-impact strong { color: var(--accent-light); }
+
+/* ── GITHUB ── */
+#github { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.github-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.repo-card {
+  background: var(--bg);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.repo-card:hover { background: var(--panel2); }
+.repo-type { font-size: 0.7rem; font-weight: 500; color: var(--accent-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.repo-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.6rem; }
+.repo-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 1.5rem; }
+.repo-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+.repo-links { display: flex; gap: 0.75rem; }
+.repo-link {
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--muted); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 6px;
+  display: flex; align-items: center; gap: 5px;
+  transition: all 0.2s;
+}
+.repo-link:hover { color: var(--text); border-color: var(--border-strong); }
+.repo-link svg { width: 12px; height: 12px; }
+
+/* ── TESTIMONIALS ── */
+#testimonials {}
+.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.test-card {
+  background: var(--panel);
+  padding: 2.5rem;
+  transition: background 0.3s;
+}
+.test-card:hover { background: var(--panel2); }
+.test-quote { font-size: 1.5rem; color: var(--accent-light); margin-bottom: 1rem; line-height: 1; font-family: var(--font-display); }
+.test-text { font-size: 0.95rem; line-height: 1.75; color: var(--muted); font-style: italic; margin-bottom: 1.5rem; }
+.test-author { font-size: 0.8rem; color: var(--text); font-weight: 500; }
+.test-role { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
+
+/* ── CONTACT ── */
+#contact { background: var(--panel); border-top: 1px solid var(--border); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem; }
+.contact-left .c-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 3.5vw, 3.5rem); letter-spacing: -0.025em; line-height: 1.05; }
+.contact-left .c-sub { margin-top: 1.5rem; font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 380px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 3rem; }
+.contact-link-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel2);
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-link-item:hover { border-color: var(--accent); background: rgba(37,99,235,0.06); }
+.cli-icon { width: 36px; height: 36px; background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cli-icon svg { width: 16px; height: 16px; stroke: var(--accent-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cli-label { font-size: 0.76rem; color: var(--muted); }
+.cli-value { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.78rem; font-weight: 500; color: var(--muted); letter-spacing: 0.03em; }
+.form-group input, .form-group textarea {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+.form-group textarea { min-height: 120px; }
+.form-submit {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 6vw;
+}
+.footer-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo { font-family: var(--font-display); font-weight: 800; font-size: 1rem; letter-spacing: 0.04em; }
+.footer-logo span { color: var(--accent-light); }
+.footer-tagline { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .exp-cards { grid-template-columns: 1fr; }
+  .github-grid { grid-template-columns: 1fr 1fr; }
+  .test-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .hero-metrics { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr 1fr; }
+  .github-grid { grid-template-columns: 1fr; }
+  .cs-header { grid-template-columns: 80px 1fr; }
+  .cs-impact-badge { display: none; }
+  .cs-body-inner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-metrics { grid-template-columns: 1fr 1fr; width: calc(100% - 12vw); }
+  section { padding: 5rem 5vw; }
+}
+@media (max-width: 480px) {
+  .principles-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr; }
+  .hero-metrics { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  position: fixed; inset: 0; z-index: 99;
+  background: rgba(9,9,11,0.96);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2.5rem;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a { font-family: var(--font-display); font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; }
+.mobile-nav a:hover { color: var(--accent-light); }
+/* ── EDUCATION ── */
+#education { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.edu-timeline { display: flex; flex-direction: column; gap: 2px; margin-top: 4rem; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.edu-item {
+  background: var(--bg);
+  padding: 2.2rem 3rem;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  transition: background 0.2s;
+}
+.edu-item:hover { background: var(--panel2); }
+.edu-period {
+  font-family: var(--font-display);
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+.edu-degree { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+.edu-institution { font-size: 0.85rem; color: var(--muted); }
+.edu-location { font-size: 0.78rem; color: var(--muted); margin-top: 2px; opacity: 0.7; }
+
+/* ── CERTIFICATIONS ── */
+#certifications {}
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.cert-card {
+  background: var(--panel);
+  padding: 2rem 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.cert-card:hover { background: var(--panel2); }
+.cert-issuer-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent-light);
+  background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 100px; padding: 4px 10px;
+  width: fit-content;
+}
+.cert-issuer-badge.microsoft { background: rgba(0,164,239,0.1); border-color: rgba(0,164,239,0.25); color: #38bdf8; }
+.cert-issuer-badge.hackerrank { background: rgba(0,200,83,0.1); border-color: rgba(0,200,83,0.25); color: #4ade80; }
+.cert-issuer-badge.udemy { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.25); color: #c084fc; }
+.cert-issuer-badge.linkedin { background: rgba(10,102,194,0.1); border-color: rgba(10,102,194,0.25); color: #60a5fa; }
+.cert-issuer-badge.upgrad { background: rgba(234,88,12,0.1); border-color: rgba(234,88,12,0.25); color: #fb923c; }
+.cert-issuer-badge.testdome { background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.25); color: #a5b4fc; }
+.cert-issuer-badge.greatlearning { background: rgba(234,179,8,0.1); border-color: rgba(234,179,8,0.25); color: #fbbf24; }
+.cert-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.cert-meta { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+.cert-id { font-size: 0.72rem; color: var(--muted); opacity: 0.6; font-family: monospace; }
+.cert-skills-tag { font-size: 0.72rem; color: var(--accent-light); background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15); padding: 3px 8px; border-radius: 4px; width: fit-content; }
+
+/* ── HOBBIES / BEYOND CODE ── */
+#beyond { border-top: 1px solid var(--border); }
+.beyond-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
+.beyond-card {
+  background: var(--panel);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: background 0.3s;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.beyond-card:hover { background: var(--panel2); }
+.beyond-icon { font-size: 2.2rem; }
+.beyond-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.beyond-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+/* ── LOCATION CARD ── */
+.location-strip {
+  display: flex; align-items: center; gap: 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  margin-top: 3rem;
+}
+.location-icon { font-size: 1.6rem; flex-shrink: 0; }
+.location-text .loc-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.location-text .loc-value { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-top: 2px; }
+.location-text .loc-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+@media (max-width: 1024px) {
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .beyond-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .beyond-grid { grid-template-columns: 1fr 1fr; }
+  .location-strip { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .cert-grid { grid-template-columns: 1fr; }
+  .beyond-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.github-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+}
+
+.repo-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:24px;
+    transition:.4s;
+    backdrop-filter:blur(20px);
+}
+
+.repo-card:hover{
+    transform:translateY(-8px);
+}
+
+.repo-type{
+    color:#6ea8ff;
+    font-size:.8rem;
+    margin-bottom:10px;
+}
+
+.repo-name{
+    margin-bottom:12px;
+}
+
+.repo-desc{
+    opacity:.8;
+    line-height:1.6;
+}
+
+.repo-link{
+    display:inline-block;
+    margin-top:20px;
+    color:#6ea8ff;
+    text-decoration:none;
+}
+
+/* ── SOCIAL BAR ── */
+.social-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+  height: 36px;
+  background: rgba(9,9,11,0.97);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6vw;
+  backdrop-filter: blur(12px);
+}
+.social-bar-left {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; color: var(--muted);
+}
+.social-bar-left svg { width: 12px; height: 12px; fill: none; stroke: var(--accent-light); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.social-bar-left span { color: var(--text); font-weight: 500; }
+.social-bar-right { display: flex; align-items: center; gap: 0; }
+.social-link {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 36px;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+  border-radius: 4px;
+  position: relative;
+}
+.social-link:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.social-link svg { width: 14px; height: 14px; fill: currentColor; }
+.social-link .s-tooltip {
+  position: absolute; top: calc(100% + 6px); right: 0;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.7rem; white-space: nowrap; color: var(--text);
+  opacity: 0; pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 200;
+}
+.social-link:hover .s-tooltip { opacity: 1; transform: translateY(0); }
+
+/* push nav + content down */
+nav { top: 36px !important; }
+#hero { padding-top: calc(var(--nav-h) + 36px); }
+
+/* ── CERT DOWNLOAD BTN ── */
+.cert-dl-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--accent-light);
+  background: rgba(37,99,235,0.08);
+  border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 6px; padding: 4px 10px;
+  width: fit-content;
+  transition: background 0.2s, border-color 0.2s;
+  margin-top: auto;
+  cursor: pointer;
+}
+.cert-dl-btn:hover { background: rgba(37,99,235,0.18); border-color: var(--accent-light); }
+.cert-dl-btn svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── CONTACT BUTTON COLOR ── */
+.form-submit {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+}
+.form-submit:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.45); }
+
+/* ── FOOTER SOCIAL ICONS ── */
+.footer-social { display: flex; gap: 10px; align-items: center; }
+.footer-social-icon {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.footer-social-icon:hover { color: var(--text); border-color: var(--accent); background: rgba(37,99,235,0.08); }
+.footer-social-icon svg { width: 14px; height: 14px; fill: currentColor; }
+.footer-address { font-size: 0.76rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+/* ── MOBILE FIX: hero metrics 2→4 cols ── */
+@media (max-width: 768px) {
+  .hero-metrics { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .hero-metrics { grid-template-columns: repeat(2, 1fr) !important; }
+  .social-bar-left { display: none; }
+}
+</style>
+</head>
+
+<body>
+<canvas id="bg"></canvas>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <!-- LEFT: Location -->
+  <div class="social-bar-left">
+    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Pune, Maharashtra, India</span>
+    &nbsp;·&nbsp; Open to Remote &amp; Hybrid
+  </div>
+  <!-- RIGHT: Social icons -->
+  <div class="social-bar-right">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span class="s-tooltip">LinkedIn</span>
+    </a>
+    <!-- GitHub -->
+    <a href="https://github.com/AnilARR" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span class="s-tooltip">GitHub · AnilARR</span>
+    </a>
+    <!-- Email -->
+    <a href="mailto:anilrathod0209@gmail.com" class="social-link" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.749l9.615 7.22 9.614-7.22h.75c.904 0 1.636.732 1.636 1.636z"/></svg>
+      <span class="s-tooltip">anilrathod0209@gmail.com</span>
+    </a>
+    <!-- Resume -->
+    <a href="https://drive.google.com/file/d/1dSQmCpzqL4-QJNwxZtmSTt_ZOp4dQYDH/view?usp=drive_link" target="_blank" rel="noopener" class="social-link" aria-label="Resume">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 1.5L18.5 9H13zM6 4h5v6h7v10H6zm2 9h8v1H8zm0 2h8v1H8zm0 2h5v1H8z"/></svg>
+      <span class="s-tooltip">Download Resume</span>
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">ANIL <span>RATHOD</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#technology">Professional Skills</a></li>
+    <li><a href="#github-projects">GitHub</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://drive.google.com/file/d/1dSQmCpzqL4-QJNwxZtmSTt_ZOp4dQYDH/view?usp=drive_link" target="_blank" rel="noopener" class="nav-cta">Download Resume</a>
+  <div class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#expertise" class="mobile-link">Expertise</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#technology" class="mobile-link">Professional Skills</a>
+  <a href="#github-projects" class="mobile-link">GitHub</a>
+  <a href="#education" class="mobile-link">Education</a>
+  <a href="#certifications" class="mobile-link">Certifications</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-mesh"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div style="width:100%;max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Available for new opportunities
+        </div>
+        <h1 class="hero-h1">
+          .NET<br>
+          <span class="accent-line">ENGINEER</span><br>
+          BUILDING AT<br>
+          ENTERPRISE SCALE.
+        </h1>
+        <p class="hero-p">
+          5+ years delivering secure, scalable .NET backend systems across Banking, Insurance, Credit Rating &amp; Financial Services — from API design to production support.
+        </p>
+        <div class="hero-actions">
+          <a href="#experience" class="btn-primary">View Experience</a>
+          <a href="https://drive.google.com/file/d/1dSQmCpzqL4-QJNwxZtmSTt_ZOp4dQYDH/view?usp=drive_link" target="_blank" rel="noopener" class="btn-secondary">Download Resume</a>
+          <a href="#contact" class="btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact Me
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- Architecture Diagram SVG -->
+        <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" class="arch-svg-wrap">
+          <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#2563EB;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.2"/>
+            </linearGradient>
+          </defs>
+          <!-- Lines -->
+          <line x1="260" y1="70" x2="120" y2="190" stroke="url(#lineGrad)" stroke-width="1" opacity="0.6">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+          </line>
+          <line x1="260" y1="70" x2="400" y2="190" stroke="url(#lineGrad)" stroke-width="1" opacity="0.6">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite"/>
+          </line>
+          <line x1="120" y1="230" x2="120" y2="340" stroke="url(#lineGrad)" stroke-width="1" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+          </line>
+          <line x1="400" y1="230" x2="400" y2="340" stroke="url(#lineGrad)" stroke-width="1" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.8s" repeatCount="indefinite"/>
+          </line>
+          <line x1="160" y1="210" x2="360" y2="210" stroke="url(#lineGrad)" stroke-width="1" opacity="0.3">
+            <animate attributeName="opacity" values="0.1;0.4;0.1" dur="5s" repeatCount="indefinite"/>
+          </line>
+          <!-- Moving dots on lines -->
+          <circle r="3" fill="#3B82F6" filter="url(#glow)" opacity="0.9">
+            <animateMotion path="M260,70 L120,190" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="3" fill="#3B82F6" filter="url(#glow)" opacity="0.9">
+            <animateMotion path="M260,70 L400,190" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="2.5" fill="#60A5FA" filter="url(#glow)" opacity="0.8">
+            <animateMotion path="M120,230 L120,340" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="2.5" fill="#60A5FA" filter="url(#glow)" opacity="0.8">
+            <animateMotion path="M400,230 L400,340" dur="3.5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Nodes -->
+          <!-- API Gateway (top center) -->
+          <rect x="205" y="24" width="110" height="46" rx="8" fill="#111216" stroke="rgba(37,99,235,0.4)" stroke-width="1"/>
+          <text x="260" y="44" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">API GATEWAY</text>
+          <text x="260" y="60" text-anchor="middle" fill="#A1A1AA" font-size="8" font-family="DM Sans,sans-serif">.NET Core / Web API</text>
+
+          <!-- Service Left -->
+          <rect x="55" y="168" width="130" height="46" rx="8" fill="#111216" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+          <text x="120" y="188" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">INSURANCE SVC</text>
+          <text x="120" y="204" text-anchor="middle" fill="#A1A1AA" font-size="8" font-family="DM Sans,sans-serif">Microservice</text>
+
+          <!-- Service Right -->
+          <rect x="335" y="168" width="130" height="46" rx="8" fill="#111216" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+          <text x="400" y="188" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">BANKING SVC</text>
+          <text x="400" y="204" text-anchor="middle" fill="#A1A1AA" font-size="8" font-family="DM Sans,sans-serif">Microservice</text>
+
+          <!-- Message Bus -->
+          <rect x="155" y="270" width="210" height="46" rx="8" fill="#111216" stroke="rgba(37,99,235,0.25)" stroke-width="1"/>
+          <text x="260" y="290" text-anchor="middle" fill="#3B82F6" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">MESSAGE BUS</text>
+          <text x="260" y="306" text-anchor="middle" fill="#A1A1AA" font-size="8" font-family="DM Sans,sans-serif">Kafka / RabbitMQ</text>
+
+          <!-- DB Left -->
+          <rect x="50" y="342" width="140" height="46" rx="8" fill="#16181D" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="120" y="362" text-anchor="middle" fill="#A1A1AA" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">SQL SERVER</text>
+          <text x="120" y="378" text-anchor="middle" fill="#52525B" font-size="8" font-family="DM Sans,sans-serif">PostgreSQL / Oracle</text>
+
+          <!-- DB Right -->
+          <rect x="330" y="342" width="140" height="46" rx="8" fill="#16181D" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="400" y="362" text-anchor="middle" fill="#A1A1AA" font-size="9" font-family="Syne,sans-serif" font-weight="700" letter-spacing="1">AZURE CLOUD</text>
+          <text x="400" y="378" text-anchor="middle" fill="#52525B" font-size="8" font-family="DM Sans,sans-serif">Docker / CI/CD</text>
+
+          <!-- Lines from message bus to DBs -->
+          <line x1="155" y1="293" x2="120" y2="342" stroke="rgba(255,255,255,0.1)" stroke-width="1">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="4s" repeatCount="indefinite"/>
+          </line>
+          <line x1="365" y1="293" x2="400" y2="342" stroke="rgba(255,255,255,0.1)" stroke-width="1">
+            <animate attributeName="opacity" values="0.05;0.2;0.05" dur="3s" repeatCount="indefinite"/>
+          </line>
+          <!-- Services to message bus -->
+          <line x1="120" y1="214" x2="210" y2="270" stroke="rgba(37,99,235,0.2)" stroke-width="1">
+            <animate attributeName="opacity" values="0.1;0.35;0.1" dur="5s" repeatCount="indefinite"/>
+          </line>
+          <line x1="400" y1="214" x2="310" y2="270" stroke="rgba(37,99,235,0.2)" stroke-width="1">
+            <animate attributeName="opacity" values="0.1;0.35;0.1" dur="4s" repeatCount="indefinite"/>
+          </line>
+        </svg>
+      </div>
+    </div>
+    <!-- Metrics -->
+   <div class="hero-metrics">
+      <div class="metric-item">
+        <div class="metric-num" data-target="5"><span class="counter"></span><span class="accent">+ Yrs</span></div>
+        <div class="metric-label">
+          <span class="metric-label-full">Professional Experience</span>
+          <span class="metric-label-mobile">Experience</span>
+        </div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num" data-target="3"><span class="counter">3</span><span class="accent"> Cos</span></div>
+        <div class="metric-label">
+          <span class="metric-label-full">Paramatrix · Pinnacle · Intellias</span>
+          <span class="metric-label-mobile">3 Companies</span>
+        </div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num" data-target="4"><span class="counter">4</span><span class="accent"> Clients</span></div>
+        <div class="metric-label">
+          <span class="metric-label-full">Kotak · ICRA · ICICI · BLME</span>
+          <span class="metric-label-mobile">4 Clients</span>
+        </div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num"><span class="accent">100%</span></div>
+        <div class="metric-label">
+          <span class="metric-label-full">Production Focused</span>
+          <span class="metric-label-mobile">Production</span>
+        </div>
+      </div>
+     </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">About</div>
+    <h2 class="section-title reveal">.NET Engineer</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>I am a <strong>Senior Software Engineer (.NET)</strong> with 5+ years of experience in designing, developing, and maintaining secure, scalable, and high-performance enterprise applications across <strong>banking, insurance, and financial domains</strong>.</p>
+        <p>I specialize in <strong>C#, .NET Core, .NET Framework, ASP.NET Web API, and Angular</strong> full-stack development, with strong expertise in building RESTful APIs, enterprise backend systems, and scalable distributed applications. I have hands-on experience delivering end-to-end solutions including API development, UI integration, system enhancements, and production support in enterprise environments.</p>
+        <p>I have strong experience in <strong>SQL Server, Oracle, PostgreSQL, and Sybase</strong>, along with SSIS and SSRS, working on ETL workflows, stored procedures, query optimization, and financial data processing systems.</p>
+        <p>Currently, I work at <strong>Intellias</strong> as a Senior .NET Engineer, supporting a UK-based banking client (BLME), contributing to mission-critical systems using .NET Core, Web API, Azure Cloud, SSIS, and SSRS. Responsibilities include backend development, ETL processing, reporting, production support, and integration with Dynamics 365 APIs. I also work with SQL Server, Sybase, GitLab, IIS, and PowerShell.</p>
+        <p>At <strong>Pinnacle Technologies</strong>, I worked on the ICICI Lombard BANCA project as a .NET Full Stack Developer — developing enterprise applications using .NET Core 8 and .NET Framework 4.8, implementing JWT authentication, AES and RSA encryption, working on Kafka-based event-driven architecture, API integrations, and migration from .NET Framework to .NET Core.</p>
+        <p>At <strong>Paramatrix Technologies</strong>, I worked on the CRISP Rating System (Client: ICRA) as a Full Stack Developer, contributing to Angular, .NET Web API, SQL Server, CI/CD using GitHub Actions, AWS deployment, OAuth 2.0 authentication, and SSO. I also worked on the <strong>Kotak Mahindra Bank</strong> project handling API development, Angular modules, SSIS ETL pipelines, SQL Server &amp; Sybase stored procedures, BODS integration, and JWT-based security.</p>
+        <p>I have strong exposure to <strong>Azure Cloud, Docker, CI/CD pipelines</strong> (Azure DevOps, Jenkins, GitHub Actions), Kafka, and PowerShell automation. I am open to opportunities in <strong>.NET Backend Development, Full Stack .NET (Angular), Azure Cloud Engineering, and Enterprise Architecture</strong> roles.</p>
+        <div class="about-tags">
+          <span class="tag">C# / .NET Core</span>
+          <span class="tag">ASP.NET Web API</span>
+          <span class="tag">Angular</span>
+          <span class="tag">Banking Systems</span>
+          <span class="tag">Insurance Platforms</span>
+          <span class="tag">Azure Cloud</span>
+          <span class="tag">SQL Server / Oracle</span>
+          <span class="tag">Kafka / RabbitMQ</span>
+          <span class="tag">ETL / SSIS / SSRS</span>
+          <span class="tag">Docker / CI/CD</span>
+          <span class="tag">JWT / OAuth 2.0</span>
+          <span class="tag">Microservices</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num"><span class="accent">5</span>+ Yrs</div>
+            <div class="about-stat-desc">Building production-grade enterprise systems across banking, insurance &amp; financial domains</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span class="accent">3</span> Companies</div>
+            <div class="about-stat-desc">Paramatrix Technologies · Pinnacle Technologies · Intellias India</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span class="accent">4</span> Clients</div>
+            <div class="about-stat-desc">Kotak Mahindra Bank · ICRA · ICICI Lombard · BLME (UK)</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span class="accent">🏆</span> Award</div>
+            <div class="about-stat-desc">PARA Star Award — Q2 2022-23 for outstanding technical contribution &amp; delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="expertise-header">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-title reveal">Core Engineering Expertise</h2>
+      <p class="section-subtitle reveal">Five pillars powering every enterprise system — from secure .NET APIs to cloud-native deployments, data engineering to full-stack delivery.</p>
+    </div>
+    <div class="expertise-grid reveal">
+      <!-- Backend -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="exp-title">Backend Development</div>
+        <div class="exp-focus">Building secure, scalable .NET enterprise systems</div>
+        <div class="exp-items">
+          <span class="exp-item">C#</span><span class="exp-item">.NET Core</span><span class="exp-item">.NET Framework</span><span class="exp-item">ASP.NET Web API</span><span class="exp-item">ASP.NET MVC</span><span class="exp-item">Entity Framework</span><span class="exp-item">Dapper</span><span class="exp-item">LINQ</span><span class="exp-item">Microservices</span>
+        </div>
+      </div>
+      <!-- Full Stack / Frontend -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="exp-title">Full Stack &amp; Frontend</div>
+        <div class="exp-focus">End-to-end feature delivery with Angular &amp; .NET</div>
+        <div class="exp-items">
+          <span class="exp-item">Angular</span><span class="exp-item">TypeScript</span><span class="exp-item">JavaScript</span><span class="exp-item">HTML5</span><span class="exp-item">CSS3</span><span class="exp-item">REST APIs</span><span class="exp-item">IIS</span>
+        </div>
+      </div>
+      <!-- Data & ETL -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div class="exp-title">Data Engineering &amp; ETL</div>
+        <div class="exp-focus">High-performance data pipelines &amp; reporting</div>
+        <div class="exp-items">
+          <span class="exp-item">SQL Server</span><span class="exp-item">Oracle</span><span class="exp-item">PostgreSQL</span><span class="exp-item">Sybase IQ</span><span class="exp-item">SSIS</span><span class="exp-item">SSRS</span><span class="exp-item">IBM BODS</span><span class="exp-item">Stored Procedures</span><span class="exp-item">Query Optimization</span>
+        </div>
+      </div>
+      <!-- Cloud & DevOps -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </div>
+        <div class="exp-title">Cloud &amp; DevOps</div>
+        <div class="exp-focus">Azure-native deployments &amp; CI/CD automation</div>
+        <div class="exp-items">
+          <span class="exp-item">Azure</span><span class="exp-item">AWS</span><span class="exp-item">Docker</span><span class="exp-item">Jenkins</span><span class="exp-item">GitHub Actions</span><span class="exp-item">Azure DevOps</span><span class="exp-item">GitLab CI/CD</span><span class="exp-item">PowerShell</span>
+        </div>
+      </div>
+      <!-- Security & Architecture -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="exp-title">Security &amp; Architecture</div>
+        <div class="exp-focus">Secure integrations, auth systems &amp; event-driven design</div>
+        <div class="exp-items">
+          <span class="exp-item">JWT</span><span class="exp-item">OAuth 2.0</span><span class="exp-item">SSO</span><span class="exp-item">AES Encryption</span><span class="exp-item">RSA Encryption</span><span class="exp-item">Kafka</span><span class="exp-item">Event-Driven Architecture</span><span class="exp-item">Distributed Systems</span>
+        </div>
+      </div>
+      <!-- Integration & Support -->
+      <div class="expertise-card" onmousemove="trackMouse(event,this)">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="exp-title">Integrations &amp; Production</div>
+        <div class="exp-focus">Third-party APIs, Dynamics 365 &amp; production support</div>
+        <div class="exp-items">
+          <span class="exp-item">Dynamics 365</span><span class="exp-item">Third-Party APIs</span><span class="exp-item">SSIS Workflows</span><span class="exp-item">Incident Resolution</span><span class="exp-item">Root Cause Analysis</span><span class="exp-item">Performance Tuning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow">Professional Experience</div>
+    <h2 class="section-title reveal">5+ Years · 3 Companies · 4 Enterprise Clients</h2>
+    <p class="section-subtitle reveal">Delivering mission-critical .NET systems across banking, insurance, credit rating, and financial services — from ETL pipelines to cloud-native APIs.</p>
+
+    <!-- COMPANY 3: INTELLIAS (CURRENT) -->
+    <div class="company-block reveal">
+      <div class="company-header">
+        <div class="company-badge current">Current</div>
+        <div class="company-info">
+          <div class="company-name">Intellias India</div>
+          <div class="company-sub">.NET Engineer</div>
+        </div>
+      </div>
+      <div class="exp-cards" style="margin-top:1.5rem;">
+        <div class="exp-card" style="grid-column:1/-1;">
+          <div class="exp-card-role">Bank of London and The Middle East (BLME)</div>
+          <span class="exp-card-domain">UK Banking · Enterprise Operations</span>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">Working on enterprise banking applications for a UK-based Islamic financial institution. Responsible for backend development, ETL workflows, financial reporting, cloud integration, and production support on mission-critical banking systems.</p>
+          <ul class="exp-card-resp">
+            <li>Developing and enhancing .NET applications for core banking operations</li>
+            <li>Designing and maintaining RESTful APIs for internal banking services</li>
+            <li>Building Azure-integrated enterprise solutions (App Services, cloud deployments)</li>
+            <li>Developing ETL workflows using SSIS for financial data processing pipelines</li>
+            <li>Creating financial reports and dashboards using SSRS</li>
+            <li>Integrating with Dynamics 365 APIs for operational automation</li>
+            <li>Supporting production systems with incident resolution and root cause analysis</li>
+            <li>Managing SQL Server and Sybase database operations and performance tuning</li>
+            <li>Automating business processes using PowerShell scripts</li>
+            <li>Supporting Azure App Services and IIS-based deployments</li>
+          </ul>
+          <div class="exp-card-stack">
+            <span class="stack-pill">.NET Core</span><span class="stack-pill">ASP.NET Web API</span><span class="stack-pill">Azure</span><span class="stack-pill">SQL Server</span><span class="stack-pill">Sybase</span><span class="stack-pill">SSIS</span><span class="stack-pill">SSRS</span><span class="stack-pill">Dynamics 365</span><span class="stack-pill">GitLab</span><span class="stack-pill">IIS</span><span class="stack-pill">PowerShell</span>
+          </div>
+          <div class="exp-card-impact"><strong>Domain:</strong> UK Islamic Banking · Enterprise Reporting · ETL Data Pipelines · Production Support</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPANY 2: PINNACLE -->
+    <div class="company-block reveal">
+      <div class="company-header">
+        <div class="company-info">
+          <div class="company-name">Pinnacle Technologies</div>
+          <div class="company-sub">.NET Full Stack Developer</div>
+        </div>
+      </div>
+      <div class="exp-cards" style="margin-top:1.5rem;">
+        <div class="exp-card" style="grid-column:1/-1;">
+          <div class="exp-card-role">ICICI Lombard General Insurance — BANCA Platform</div>
+          <span class="exp-card-domain">Insurance · Bank Assurance · FinTech</span>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">Worked on the BANCA (Bank Assurance) platform — a large-scale insurance distribution system enabling banking partners (including Bandhan Bank) to sell insurance products through banking channels. Responsible for enterprise API development, security implementations, Kafka event streaming, and database operations.</p>
+          <ul class="exp-card-resp">
+            <li>Developed enterprise APIs using .NET Core 8 and .NET Framework 4.8</li>
+            <li>Designed and implemented secure authentication using JWT tokens</li>
+            <li>Implemented OAuth 2.0 authorization mechanisms across services</li>
+            <li>Applied AES and RSA encryption for secure communication channels</li>
+            <li>Integrated multiple third-party insurance and banking systems</li>
+            <li>Developed high-performance backend services for policy distribution</li>
+            <li>Implemented Kafka-based event-driven data processing pipelines</li>
+            <li>Contributed to CI/CD pipelines using Jenkins</li>
+            <li>Participated in migration from .NET Framework to .NET Core</li>
+            <li>Worked with Oracle and PostgreSQL databases for policy and transaction data</li>
+          </ul>
+          <div class="exp-card-stack">
+            <span class="stack-pill">.NET Core 8</span><span class="stack-pill">.NET Framework 4.8</span><span class="stack-pill">ASP.NET Web API</span><span class="stack-pill">Oracle</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Kafka</span><span class="stack-pill">Jenkins</span><span class="stack-pill">JWT</span><span class="stack-pill">OAuth 2.0</span><span class="stack-pill">AES / RSA</span><span class="stack-pill">Angular</span>
+          </div>
+          <div class="exp-card-impact"><strong>Domain:</strong> Bank Assurance · Insurance Distribution · Event-Driven Architecture · Security Engineering</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPANY 1: PARAMATRIX -->
+    <div class="company-block reveal">
+      <div class="company-header">
+        <div class="company-info">
+          <div class="company-name">Paramatrix Technologies Limited</div>
+          <div class="company-sub">Software Engineer → Full Stack .NET Developer</div>
+        </div>
+      </div>
+      <div class="exp-cards" style="margin-top:1.5rem;">
+        <!-- Client 1: ICRA -->
+        <div class="exp-card">
+          <div class="exp-card-role">ICRA Limited — CRISP Rating Platform</div>
+          <span class="exp-card-domain">Credit Rating · Financial Analytics</span>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">Worked on CRISP (Credit Rating Information and Solution Platform) — a financial rating and analytics platform for ICRA (ICRA is India's leading credit rating agency). Contributed as a Full Stack Developer across Angular frontend, .NET Web API backend, and cloud deployments.</p>
+          <ul class="exp-card-resp">
+            <li>Developed Angular-based frontend modules for rating workflows</li>
+            <li>Built backend services using ASP.NET Web API</li>
+            <li>Designed SQL Server stored procedures and optimized queries</li>
+            <li>Implemented OAuth 2.0 based SSO authentication</li>
+            <li>Supported AWS deployment environments</li>
+            <li>Configured GitHub Actions CI/CD pipelines</li>
+          </ul>
+          <div class="exp-card-stack">
+            <span class="stack-pill">Angular</span><span class="stack-pill">ASP.NET Web API</span><span class="stack-pill">SQL Server</span><span class="stack-pill">AWS</span><span class="stack-pill">GitHub Actions</span><span class="stack-pill">OAuth 2.0 / SSO</span><span class="stack-pill">IIS</span>
+          </div>
+          <div class="exp-card-impact"><strong>Domain:</strong> Credit Rating · Financial Analytics · AWS Cloud</div>
+        </div>
+        <!-- Client 2: Kotak -->
+        <div class="exp-card">
+          <div class="exp-card-role">Kotak Mahindra Bank — Data Warehouse &amp; MIS</div>
+          <span class="exp-card-domain">Banking · Data Warehousing · Retail Liabilities</span>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;">Worked on the Data Warehouse and MIS (Management Information System) platform for Kotak Mahindra Bank's Retail Liabilities Division — handling enterprise reporting, ETL pipelines, and data transformation workflows for banking analytics.</p>
+          <ul class="exp-card-resp">
+            <li>Developed SSIS ETL packages for banking data pipelines</li>
+            <li>Built ASP.NET Web APIs for MIS data access</li>
+            <li>Developed and optimized SQL Server stored procedures</li>
+            <li>Worked with Sybase IQ databases for large-scale data</li>
+            <li>Created IBM BODS jobs for complex data transformations</li>
+            <li>Developed Angular-based user interfaces for reporting dashboards</li>
+            <li>Automated reporting and data processing workflows</li>
+            <li>Implemented JWT-based security for data access APIs</li>
+          </ul>
+          <div class="exp-card-stack">
+            <span class="stack-pill">SQL Server</span><span class="stack-pill">Sybase IQ</span><span class="stack-pill">SSIS</span><span class="stack-pill">IBM BODS</span><span class="stack-pill">ASP.NET Web API</span><span class="stack-pill">Angular</span><span class="stack-pill">IIS</span><span class="stack-pill">JWT</span>
+          </div>
+          <div class="exp-card-impact"><strong>Domain:</strong> Banking Data Warehouse · ETL Pipelines · MIS Reporting · Retail Liabilities</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section id="technology" style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-eyebrow">Stack</div>
+    <h2 class="section-title reveal">Professional Skills</h2>
+    <p class="section-subtitle reveal">Every tool and platform used across 5+ years of enterprise .NET engineering — chosen for reliability, performance, and production readiness.</p>
+    <div class="tech-categories">
+      <button class="tech-cat-btn active" data-cat="all">All</button>
+      <button class="tech-cat-btn" data-cat="backend">Backend</button>
+      <button class="tech-cat-btn" data-cat="frontend">Frontend</button>
+      <button class="tech-cat-btn" data-cat="database">Databases &amp; ETL</button>
+      <button class="tech-cat-btn" data-cat="cloud">Cloud &amp; DevOps</button>
+      <button class="tech-cat-btn" data-cat="security">Security</button>
+      <button class="tech-cat-btn" data-cat="messaging">Messaging</button>
+    </div>
+    <div class="tech-grid" id="tech-grid">
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">⚙️</div><div class="tech-name">.NET Core</div><div class="tech-cat-label">Backend</div><div class="tech-tooltip">Used across all enterprise client projects</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">🏗️</div><div class="tech-name">.NET Framework</div><div class="tech-cat-label">Backend</div><div class="tech-tooltip">Legacy &amp; migration work at ICICI Lombard BANCA (.NET 4.8)</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">🔌</div><div class="tech-name">ASP.NET Web API</div><div class="tech-cat-label">Backend</div><div class="tech-tooltip">RESTful API framework across all enterprise clients</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">💻</div><div class="tech-name">C#</div><div class="tech-cat-label">Language</div><div class="tech-tooltip">Primary language for all backend systems and automation</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">🗄️</div><div class="tech-name">Entity Framework</div><div class="tech-cat-label">ORM</div><div class="tech-tooltip">Code-first ORM for structured data access</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">⚡</div><div class="tech-name">Dapper</div><div class="tech-cat-label">Micro ORM</div><div class="tech-tooltip">High-performance micro-ORM for complex SQL in critical paths</div></div>
+      <div class="tech-item" data-cat="backend"><div class="tech-logo">🔗</div><div class="tech-name">LINQ</div><div class="tech-cat-label">Backend</div><div class="tech-tooltip">Language-integrated query for data transformation</div></div>
+      <div class="tech-item" data-cat="frontend"><div class="tech-logo">🅰️</div><div class="tech-name">Angular</div><div class="tech-cat-label">Frontend</div><div class="tech-tooltip">Used at ICRA CRISP, Kotak MIS, ICICI Lombard BANCA</div></div>
+      <div class="tech-item" data-cat="frontend"><div class="tech-logo">📜</div><div class="tech-name">TypeScript</div><div class="tech-cat-label">Frontend</div><div class="tech-tooltip">Strongly typed JS for Angular development</div></div>
+      <div class="tech-item" data-cat="frontend"><div class="tech-logo">🌐</div><div class="tech-name">JavaScript</div><div class="tech-cat-label">Frontend</div><div class="tech-tooltip">Core scripting for web application interactions</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">🏦</div><div class="tech-name">SQL Server</div><div class="tech-cat-label">Database</div><div class="tech-tooltip">Primary RDBMS — BLME, ICRA CRISP, Kotak Bank</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">🔶</div><div class="tech-name">Oracle</div><div class="tech-cat-label">Database</div><div class="tech-tooltip">Enterprise DB at ICICI Lombard for policy &amp; transaction data</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">🐘</div><div class="tech-name">PostgreSQL</div><div class="tech-cat-label">Database</div><div class="tech-tooltip">Used at ICICI Lombard BANCA platform</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">💾</div><div class="tech-name">Sybase IQ</div><div class="tech-cat-label">Database</div><div class="tech-tooltip">Column-store DB at Kotak Bank and BLME banking systems</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">🔄</div><div class="tech-name">SSIS</div><div class="tech-cat-label">ETL</div><div class="tech-tooltip">ETL pipelines at Kotak MIS and BLME banking</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">📊</div><div class="tech-name">SSRS</div><div class="tech-cat-label">Reporting</div><div class="tech-tooltip">Financial reports and dashboards at BLME (Intellias)</div></div>
+      <div class="tech-item" data-cat="database"><div class="tech-logo">🔃</div><div class="tech-name">IBM BODS</div><div class="tech-cat-label">ETL</div><div class="tech-tooltip">Data transformation at Kotak Mahindra Bank Data Warehouse</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">☁️</div><div class="tech-name">Azure</div><div class="tech-cat-label">Cloud</div><div class="tech-tooltip">App Services, cloud deployments at BLME (Intellias)</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">🌩️</div><div class="tech-name">AWS</div><div class="tech-cat-label">Cloud</div><div class="tech-tooltip">Deployment environment at ICRA CRISP (Paramatrix)</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">🐳</div><div class="tech-name">Docker</div><div class="tech-cat-label">Containers</div><div class="tech-tooltip">Containerization for consistent enterprise deployments</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">🚀</div><div class="tech-name">Jenkins</div><div class="tech-cat-label">CI/CD</div><div class="tech-tooltip">CI/CD at Pinnacle Technologies / ICICI Lombard</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">⚡</div><div class="tech-name">GitHub Actions</div><div class="tech-cat-label">CI/CD</div><div class="tech-tooltip">Automated pipelines at ICRA CRISP project</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">🦊</div><div class="tech-name">GitLab CI/CD</div><div class="tech-cat-label">CI/CD</div><div class="tech-tooltip">Source control &amp; pipelines at BLME (Intellias)</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">📜</div><div class="tech-name">PowerShell</div><div class="tech-cat-label">Automation</div><div class="tech-tooltip">Business process automation at BLME banking</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">🖥️</div><div class="tech-name">IIS</div><div class="tech-cat-label">Hosting</div><div class="tech-tooltip">.NET application deployments across all projects</div></div>
+      <div class="tech-item" data-cat="cloud"><div class="tech-logo">📦</div><div class="tech-name">Dynamics 365</div><div class="tech-cat-label">Integration</div><div class="tech-tooltip">API integration at BLME (Intellias) for banking workflows</div></div>
+      <div class="tech-item" data-cat="security"><div class="tech-logo">🔑</div><div class="tech-name">JWT</div><div class="tech-cat-label">Security</div><div class="tech-tooltip">Authentication at ICICI Lombard and Kotak</div></div>
+      <div class="tech-item" data-cat="security"><div class="tech-logo">🔐</div><div class="tech-name">OAuth 2.0</div><div class="tech-cat-label">Security</div><div class="tech-tooltip">Authorization at ICICI Lombard BANCA and ICRA CRISP</div></div>
+      <div class="tech-item" data-cat="security"><div class="tech-logo">🛡️</div><div class="tech-name">SSO</div><div class="tech-cat-label">Security</div><div class="tech-tooltip">Single Sign-On authentication at ICRA CRISP</div></div>
+      <div class="tech-item" data-cat="security"><div class="tech-logo">🔒</div><div class="tech-name">AES / RSA</div><div class="tech-cat-label">Encryption</div><div class="tech-tooltip">Symmetric &amp; asymmetric encryption at ICICI Lombard</div></div>
+      <div class="tech-item" data-cat="messaging"><div class="tech-logo">📨</div><div class="tech-name">Kafka</div><div class="tech-cat-label">Messaging</div><div class="tech-tooltip">Event streaming at ICICI Lombard BANCA</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB PROJECTS -->
+<section id="github-projects" style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-eyebrow">GitHub</div>
+    <h2 class="section-title reveal">Personal GitHub Projects</h2>
+    <p class="section-subtitle reveal">
+Explore my GitHub projects, code repositories, and software solutions showcasing my experience in .NET development, cloud technologies, enterprise applications, and modern software engineering practices.
+</p>
+    <div class="github-grid reveal" id="githubRepos">
+    <article class="repo-card">
+        <div class="repo-type">Loading...</div>
+        <h3 class="repo-name">Fetching Repositories</h3>
+        <p class="repo-desc">
+            Loading your latest GitHub projects...
+        </p>
+    </article>
+
+</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS / AWARD -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-eyebrow">Recognition</div>
+    <h2 class="section-title reveal">Awards &amp; Recognition </h2>
+    <div class="test-grid reveal">
+      <div class="test-card" style="background:rgba(37,99,235,0.04);border:1px solid rgba(37,99,235,0.15);">
+        <div class="test-quote" style="font-size:2rem;">🏆</div>
+        <div class="test-text" style="font-style:normal;color:var(--text);font-size:1rem;">PARA Star Award — Q2 2022-23. Awarded at Paramatrix Technologies for outstanding performance, technical contribution, and commitment to project delivery across the ICRA CRISP and Kotak MIS engagements.</div>
+        <div class="test-author">Paramatrix Technologies Limited</div>
+        <div class="test-role">Q2 2022-23 · Outstanding Contribution Award</div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">👏</div>
+        <div class="test-text"> Appreciated for successfully setting up and delivering the ICRA CRISP platform. Worked closely with business stakeholders, development teams, and project leadership to ensure a smooth implementation, seamless integration, and successful production rollout.</div>
+        <div class="test-author">Engineering Lead</div>
+        <div class="test-role"> ICRA Limited · CRISP Platform Implementation</div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">⭐</div>
+        <div class="test-text">Built secure, scalable APIs with a focus on long-term maintainability. Every integration — from JWT authentication to Kafka event pipelines — was thoroughly designed and production-ready from day one.</div>
+        <div class="test-author">Principal Architect</div>
+        <div class="test-role">Insurance Platform · Pinnacle Technologies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title reveal">Academic Background</h2>
+    <p class="section-subtitle reveal">Engineering foundation built across schools in Nagpur, shaping the discipline behind every production system.</p>
+
+
+    <div class="edu-timeline reveal">
+      <div class="edu-item">
+        <div class="edu-period">Aug 2016 — Dec 2020</div>
+        <div>
+          <div class="edu-degree">Bachelor of Science — Computer Science &amp; Engineering</div>
+          <div class="edu-institution">S. B. Jain Institute of Technology, Management &amp; Research</div>
+          <div class="edu-location">Nagpur, Maharashtra</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">Aug 2014 — Mar 2016</div>
+        <div>
+          <div class="edu-degree">High School Diploma (HSC)</div>
+          <div class="edu-institution">V C Junior College</div>
+          <div class="edu-location">Nagpur, Maharashtra</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">Jun 2013 — Mar 2014</div>
+        <div>
+          <div class="edu-degree">Secondary School Certificate (SSC)</div>
+          <div class="edu-institution">Trimurti Vidyalaya Dudhala</div>
+          <div class="edu-location">Nagpur, Maharashtra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow">Licenses &amp; Certifications</div>
+    <h2 class="section-title reveal">Credentials &amp; Training</h2>
+    <p class="section-subtitle reveal">Continuously sharpening skills across AI, cloud, .NET architecture, and data engineering.</p>
+    <div class="cert-grid reveal">
+
+      <!-- Anthropic - Building with Claude API -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge">🤖 Anthropic</div>
+        <div class="cert-name">Building with the Claude API</div>
+        <div class="cert-meta">Issued Jun 2026</div>
+        <div class="cert-id">ID: 7xfstdywgyew</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View on LinkedIn</a>
+      </div>
+
+      <!-- Anthropic - AI Capabilities -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge">🤖 Anthropic</div>
+        <div class="cert-name">Certificate of Completion: AI Capabilities and Limitations</div>
+        <div class="cert-meta">Issued Apr 2026</div>
+        <div class="cert-id">ID: hzg48zai4wat</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View on LinkedIn</a>
+      </div>
+
+      <!-- Udemy - Azure Zero to Hero -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge udemy">🎓 Udemy</div>
+        <div class="cert-name">Microsoft Azure: From Zero to Hero — The Complete Guide</div>
+        <div class="cert-meta">Issued Apr 2026</div>
+        <div class="cert-id">ID: UC-794a9657-ad9b-4fe0-a2ed-a2d77e511f1b</div>
+        <div class="cert-skills-tag">Microsoft Azure</div>
+        <a href="https://www.udemy.com/certificate/UC-794a9657-ad9b-4fe0-a2ed-a2d77e511f1b/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- upGrad - Gen AI -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge upgrad">📘 upGrad</div>
+        <div class="cert-name">Generative AI Foundations Certificate Program</div>
+        <div class="cert-meta">Issued Aug 2025</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View on LinkedIn</a>
+      </div>
+
+      <!-- LinkedIn - .NET Microservices -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge linkedin">in LinkedIn</div>
+        <div class="cert-name">.NET Microservices for Azure Developers</div>
+        <div class="cert-meta">LinkedIn Learning</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View on LinkedIn</a>
+      </div>
+
+      <!-- Microsoft - Azure Fundamentals -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge microsoft">☁️ Microsoft</div>
+        <div class="cert-name">Azure Fundamentals — AZ-900</div>
+        <div class="cert-meta">Issued Mar 2021</div>
+        <div class="cert-meta">Describe core Azure concepts</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- HackerRank - SQL Advanced -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge hackerrank">✅ HackerRank</div>
+        <div class="cert-name">SQL (Advanced)</div>
+        <div class="cert-meta">Issued Apr 2023</div>
+        <div class="cert-id">ID: 7a575afd3395</div>
+        <a href="https://www.hackerrank.com/certificates/7a575afd3395" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- HackerRank - SQL Intermediate -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge hackerrank">✅ HackerRank</div>
+        <div class="cert-name">SQL (Intermediate)</div>
+        <div class="cert-id">ID: 48641AB13E52</div>
+        <a href="https://www.hackerrank.com/certificates/48641AB13E52" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- HackerRank - SQL Basic -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge hackerrank">✅ HackerRank</div>
+        <div class="cert-name">SQL (Basic)</div>
+        <div class="cert-id">ID: 1B4DCE2512DF</div>
+        <a href="https://www.hackerrank.com/certificates/1B4DCE2512DF" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- TestDome - SQL -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge testdome">🧪 TestDome</div>
+        <div class="cert-name">SQL</div>
+        <div class="cert-meta">Issued Jul 2022</div>
+        <div class="cert-id">ID: 815773302a514bec8f73eca709cb5e16</div>
+        <a href="https://www.testdome.com/certificates/815773302a514bec8f73eca709cb5e16" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- Great Learning - Advanced SQL -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge greatlearning">🎓 Great Learning</div>
+        <div class="cert-name">Advanced SQL</div>
+        <div class="cert-meta">Issued Jul 2022</div>
+        <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/details/certifications/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View on LinkedIn</a>
+      </div>
+
+      <!-- Udemy - SSRS -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge udemy">🎓 Udemy</div>
+        <div class="cert-name">Mastering SQL Server Reporting Services (SSRS) From Scratch</div>
+        <div class="cert-meta">Issued Feb 2023</div>
+        <div class="cert-id">ID: UC-620e7f2a-ff07-4f3b-8a9a-056dca2b19f9</div>
+        <a href="https://www.udemy.com/certificate/UC-620e7f2a-ff07-4f3b-8a9a-056dca2b19f9/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- Udemy - SQL Server -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge udemy">🎓 Udemy</div>
+        <div class="cert-name">Microsoft SQL Server — Complete Course</div>
+        <div class="cert-id">ID: UC-50ad6450-aeec-48ee-8d4d-ef220b77abf8</div>
+        <a href="https://www.udemy.com/certificate/UC-50ad6450-aeec-48ee-8d4d-ef220b77abf8/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+      <!-- Udemy - Android -->
+      <div class="cert-card">
+        <div class="cert-issuer-badge udemy">🎓 Udemy</div>
+        <div class="cert-name">The Complete Android App Development Masterclass</div>
+        <div class="cert-id">ID: UC-28918531-756b-4da9-ae83-38200aad9bf7</div>
+        <div class="cert-skills-tag">Android Studio</div>
+        <a href="https://www.udemy.com/certificate/UC-28918531-756b-4da9-ae83-38200aad9bf7/" target="_blank" rel="noopener" class="cert-dl-btn"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>View Certificate</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND CODE / HOBBIES -->
+<section id="beyond">
+  <div class="section-inner">
+    <div class="section-eyebrow">Beyond Code</div>
+    <h2 class="section-title reveal">Interests &amp; Hobbies</h2>
+    <p class="section-subtitle reveal">The pursuits that keep the mind sharp, the body moving, and the perspective fresh.</p>
+    <div class="beyond-grid reveal">
+      <div class="beyond-card">
+        <div class="beyond-icon">🎵</div>
+        <div class="beyond-title">Music</div>
+        <div class="beyond-desc">Listening to music while coding is non-negotiable — it's the background score to every build.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">🏏</div>
+        <div class="beyond-title">Cricket</div>
+        <div class="beyond-desc">From weekend matches to following tournaments — cricket is both a passion and a mental reset.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">🎮</div>
+        <div class="beyond-title">Gaming</div>
+        <div class="beyond-desc">Strategy games sharpen problem-solving instincts. The same thinking applies on both sides of the screen.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">📖</div>
+        <div class="beyond-title">Tech Reading</div>
+        <div class="beyond-desc">Staying current with .NET releases, cloud architecture patterns, and AI — continuous learning never stops.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Contact</div>
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <div class="c-title">LET'S BUILD SOMETHING<br><span style="color:var(--accent-light)">MEANINGFUL.</span></div>
+        <p class="c-sub">Open to opportunities in .NET Backend Development, Full Stack .NET (Angular), Azure Cloud Engineering, and Enterprise Architecture roles. Let's connect.</p>
+        <div class="contact-links">
+          <a href="mailto:anilrathod.ar716@gmail.com" class="contact-link-item">
+            <div class="cli-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="cli-label">Email</div><div class="cli-value">anilrathod.ar716@gmail.com</div></div>
+          </a>
+          <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="cli-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div><div class="cli-label">LinkedIn</div><div class="cli-value">linkedin.com/in/anil-rathod-981bb612a/</div></div>
+          </a>
+          <a href="https://drive.google.com/file/d/1dSQmCpzqL4-QJNwxZtmSTt_ZOp4dQYDH/view?usp=drive_link" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="cli-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <div><div class="cli-label">Resume</div><div class="cli-value">Download CV (Google Drive)</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c_name">Name</label>
+            <input type="text" id="c_name" placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label for="c_email">Email</label>
+            <input type="email" id="c_email" placeholder="john@company.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c_phone">Phone (optional)</label>
+            <input type="tel" id="c_phone" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label for="c_company">Company</label>
+            <input type="text" id="c_company" placeholder="Company Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c_message">Message</label>
+          <textarea id="c_message" placeholder="Tell me about the role or opportunity..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">ANIL <span>RATHOD</span></div>
+      <div class="footer-tagline">.NET Engineer · Banking | Insurance | FinTech | Enterprise Systems</div>
+      <div class="footer-address">📍 Pimpri-Chinchwad, Pune, Maharashtra 411018, India</div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/anil-rathod-981bb612a/" target="_blank" rel="noopener" class="footer-social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/AnilARR" target="_blank" rel="noopener" class="footer-social-icon" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:anilrathod0209@gmail.com" class="footer-social-icon" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.749l9.615 7.22 9.614-7.22h.75c.904 0 1.636.732 1.636 1.636z"/></svg>
+      </a>
+      <a href="https://drive.google.com/file/d/1dSQmCpzqL4-QJNwxZtmSTt_ZOp4dQYDH/view?usp=drive_link" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Resume">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 1.5L18.5 9H13zM6 4h5v6h7v10H6zm2 9h8v1H8zm0 2h8v1H8zm0 2h5v1H8z"/></svg>
+      </a>
+    </div>
+    <div class="footer-copy">© 2026 Anil Rathod · Pune, India · All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ── NAV SCROLL ──
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+  updateActiveNav();
+});
+
+// ── ACTIVE NAV ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120;
+  sections.forEach(sec => {
+    if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + sec.id);
+      });
+    }
+  });
+}
+
+// ── MOBILE NAV ──
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+document.querySelectorAll('.mobile-link').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // Stagger children if multiple
+      const children = e.target.querySelectorAll('.principle-card, .expertise-card, .exp-card, .repo-card, .test-card, .metric-item, .cert-card, .beyond-card, .edu-item');
+      children.forEach((c, i) => {
+        setTimeout(() => c.style.opacity = '1', i * 80);
+      });
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── CASE STUDY TOGGLE ──
+function toggleCS(header) {
+  const card = header.closest('[data-cs]');
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('[data-cs]').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+// ── TECH FILTER ──
+document.querySelectorAll('.tech-cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tech-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.tech-item').forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// ── CARD MOUSE GLOW ──
+function trackMouse(e, card) {
+  const rect = card.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+  const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+  card.style.setProperty('--mx', x + '%');
+  card.style.setProperty('--my', y + '%');
+}
+
+// ── FORM SUBMIT (opens mailto to anilrathod0209@gmail.com) ──
+function handleSubmit() {
+  const name = document.getElementById('c_name').value.trim();
+  const email = document.getElementById('c_email').value.trim();
+  const phone = document.getElementById('c_phone').value.trim();
+  const company = document.getElementById('c_company').value.trim();
+  const message = document.getElementById('c_message').value.trim();
+  if (!name || !email) { alert('Please fill in your name and email.'); return; }
+  const subject = encodeURIComponent('Portfolio Inquiry from ' + name);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    (phone ? 'Phone: ' + phone + '\n' : '') +
+    (company ? 'Company: ' + company + '\n' : '') +
+    '\nMessage:\n' + message
+  );
+  window.location.href = 'mailto:anilrathod0209@gmail.com?subject=' + subject + '&body=' + body;
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Opening Email Client ✓';
+  btn.style.background = '#16a34a';
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+    ['c_name','c_email','c_phone','c_company','c_message'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  }, 3000);
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounters() {
+  document.querySelectorAll('[data-target]').forEach(el => {
+    const target = +el.dataset.target;
+    const counter = el.querySelector('.counter');
+    if (!counter || counter.dataset.animated) return;
+    counter.dataset.animated = '1';
+    let start = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+    const tick = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) animateCounters(); });
+}, { threshold: 0.5 });
+document.querySelector('.hero-metrics') && counterObserver.observe(document.querySelector('.hero-metrics'));
+</script>
+<script>
+
+const username = "AnilARR";
+
+fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
+.then(response => response.json())
+.then(repos => {
+
+    const container =
+        document.getElementById("githubRepos");
+
+    container.innerHTML = "";
+
+    repos.forEach(repo => {
+
+        container.innerHTML += `
+        <article class="repo-card">
+
+            <div class="repo-type">
+                ${repo.language || "Repository"}
+            </div>
+
+            <h3 class="repo-name">
+                ${repo.name}
+            </h3>
+
+            <p class="repo-desc">
+                ${repo.description || "Enterprise software project"}
+            </p>
+
+            <div class="repo-links">
+
+                <a
+                    class="repo-link"
+                    href="${repo.html_url}"
+                    target="_blank">
+
+                    View Repository →
+                </a>
+
+            </div>
+
+        </article>
+        `;
+
+    });
+
+})
+.catch(error => {
+
+    document.getElementById("githubRepos").innerHTML =
+    `
+    <article class="repo-card">
+        <h3>Unable to load repositories</h3>
+    </article>
+    `;
+
+});
+
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle{
+
+    constructor(){
+
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
+
+        this.vx = (Math.random()-0.5)*0.6;
+        this.vy = (Math.random()-0.5)*0.6;
+
+        this.size = Math.random()*2+1;
+    }
+
+    update(){
+
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if(this.x<0||this.x>canvas.width)
+            this.vx*=-1;
+
+        if(this.y<0||this.y>canvas.height)
+            this.vy*=-1;
+    }
+
+    draw(){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle = "#60a5fa";
+
+        ctx.fill();
+    }
+}
+
+for(let i=0;i<120;i++){
+
+    particles.push(
+        new Particle()
+    );
+}
+
+function connect(){
+
+    for(let a=0;a<particles.length;a++){
+
+        for(let b=a;b<particles.length;b++){
+
+            let dx =
+            particles[a].x - particles[b].x;
+
+            let dy =
+            particles[a].y - particles[b].y;
+
+            let dist =
+            dx*dx + dy*dy;
+
+            if(dist < 12000){
+
+                ctx.strokeStyle =
+                "rgba(96,165,250,.08)";
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    particles[a].x,
+                    particles[a].y
+                );
+
+                ctx.lineTo(
+                    particles[b].x,
+                    particles[b].y
+                );
+
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p=>{
+
+        p.update();
+        p.draw();
+
+    });
+
+    connect();
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize",()=>{
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+});
+</script>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top" style="
+  position:fixed; bottom:28px; right:28px; z-index:200;
+  width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg,#2563EB,#7C3AED);
+  border:none; cursor:pointer; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,99,235,0.4);
+  opacity:0; transition:opacity 0.3s, transform 0.3s;
+  transform:translateY(12px);
+">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ── SCROLL TO TOP VISIBILITY ──
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    scrollTopBtn.style.opacity = '1';
+    scrollTopBtn.style.transform = 'translateY(0)';
+  } else {
+    scrollTopBtn.style.opacity = '0';
+    scrollTopBtn.style.transform = 'translateY(12px)';
+  }
+});
+
+// ── TYPING ANIMATION on hero subtitle ──
+const typingEl = document.querySelector('.hero-p');
+if (typingEl) {
+  const originalText = typingEl.innerHTML;
+  typingEl.style.opacity = '1';
+}
+
+// ── HERO BADGE ROTATING TITLES ──
+const roles = [
+  '.NET Backend Engineer',
+  'Azure Cloud Developer',
+  'Full Stack .NET (Angular)',
+  'Enterprise Architect',
+  'Banking & FinTech Systems',
+];
+let roleIdx = 0;
+const badgeEl = document.querySelector('.hero-badge');
+if (badgeEl) {
+  const dot = badgeEl.querySelector('.hero-badge-dot');
+  const roleSpan = document.createElement('span');
+  roleSpan.id = 'rotating-role';
+  roleSpan.textContent = roles[0];
+  badgeEl.innerHTML = '';
+  if (dot) badgeEl.appendChild(dot);
+  badgeEl.appendChild(roleSpan);
+  setInterval(() => {
+    roleIdx = (roleIdx + 1) % roles.length;
+    roleSpan.style.opacity = '0';
+    roleSpan.style.transform = 'translateY(-8px)';
+    roleSpan.style.transition = 'opacity 0.3s, transform 0.3s';
+    setTimeout(() => {
+      roleSpan.textContent = roles[roleIdx];
+      roleSpan.style.opacity = '1';
+      roleSpan.style.transform = 'translateY(0)';
+    }, 320);
+  }, 2800);
+}
+
+// ── TECH ITEM CLICK RIPPLE ──
+document.querySelectorAll('.tech-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.style.cssText = `
+      position:absolute; border-radius:50%;
+      background:rgba(37,99,235,0.35);
+      width:60px; height:60px;
+      transform:translate(-50%,-50%) scale(0);
+      animation:rippleAnim 0.5s ease-out forwards;
+      left:${e.offsetX}px; top:${e.offsetY}px;
+      pointer-events:none;
+    `;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// add ripple keyframe
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = '@keyframes rippleAnim{to{transform:translate(-50%,-50%) scale(3);opacity:0;}}';
+document.head.appendChild(rippleStyle);
+
+// ── CERT CARD HOVER GLOW ──
+document.querySelectorAll('.cert-card').forEach(card => {
+  card.addEventListener('mousemove', function(e) {
+    const rect = this.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    this.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(37,99,235,0.08), var(--panel) 60%)`;
+  });
+  card.addEventListener('mouseleave', function() {
+    this.style.background = '';
+  });
+});
+
+// ── READING PROGRESS BAR ──
+const progressBar = document.createElement('div');
+progressBar.style.cssText = `
+  position:fixed; top:72px; left:0; height:2px; z-index:99;
+  background:linear-gradient(90deg,#2563EB,#7C3AED);
+  width:0%; transition:width 0.1s linear;
+`;
+document.body.appendChild(progressBar);
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrolled / total * 100) + '%';
+});
+</script>
+</body>
+</html>
