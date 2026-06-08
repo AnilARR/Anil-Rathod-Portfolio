@@ -586,7 +586,63 @@ section { padding: 7rem 6vw; }
 }
 .repo-link:hover { color: var(--text); border-color: var(--border-strong); }
 .repo-link svg { width: 12px; height: 12px; }
+.github-controls{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-bottom:20px;
+}
 
+.github-controls button{
+    width:46px;
+    height:46px;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:var(--panel2);
+    color:var(--text);
+
+    font-size:18px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.github-controls button:hover{
+   background:linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
+
+    transform:translateY(-50%) scale(1.08);
+}
+
+.github-wrapper{
+    overflow:hidden;
+}
+
+.github-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  margin-top:4rem;
+}
+.github-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.repo-card{
+    min-width:360px;
+    flex-shrink:0;
+}
 /* ── TESTIMONIALS ── */
 #testimonials {}
 .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 4rem; }
@@ -792,7 +848,65 @@ footer {
 .beyond-icon { font-size: 2.2rem; }
 .beyond-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
 .beyond-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+.github-slider-wrapper{
+    position:relative;
+}
 
+.github-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:52px;
+    height:52px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#2563eb;
+    color:white;
+
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
+
+    transition:.3s;
+}
+
+.github-arrow:hover{
+    background:#1d4ed8;
+    transform:translateY(-50%) scale(1.08);
+}
+
+#githubPrev{
+    left:-25px;
+}
+
+#githubNext{
+    right:-25px;
+}
+@media(max-width:768px){
+
+    #githubPrev{
+        left:5px;
+    }
+
+    #githubNext{
+        right:5px;
+    }
+
+    .github-arrow{
+        width:42px;
+        height:42px;
+        font-size:18px;
+    }
+
+}
 /* ── LOCATION CARD ── */
 .location-strip {
   display: flex; align-items: center; gap: 1.5rem;
@@ -1011,7 +1125,7 @@ nav { top: 36px !important; }
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#technology">Professional Skills</a></li>
-    <li><a href="#github-projects">GitHub</a></li>
+    <li><a href="#github">GitHub</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1027,7 +1141,7 @@ nav { top: 36px !important; }
   <a href="#expertise" class="mobile-link">Expertise</a>
   <a href="#experience" class="mobile-link">Experience</a>
   <a href="#technology" class="mobile-link">Professional Skills</a>
-  <a href="#github-projects" class="mobile-link">GitHub</a>
+  <a href="#github" class="mobile-link">GitHub</a>
   <a href="#education" class="mobile-link">Education</a>
   <a href="#certifications" class="mobile-link">Certifications</a>
   <a href="#contact" class="mobile-link">Contact</a>
@@ -1495,26 +1609,44 @@ nav { top: 36px !important; }
 </section>
 
 <!-- GITHUB PROJECTS -->
-<section id="github-projects" style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="section-inner">
-    <div class="section-eyebrow">GitHub</div>
-    <h2 class="section-title reveal">Personal GitHub Projects</h2>
-    <p class="section-subtitle reveal">
-Explore my GitHub projects, code repositories, and software solutions showcasing my experience in .NET development, cloud technologies, enterprise applications, and modern software engineering practices.
-</p>
-    <div class="github-grid reveal" id="githubRepos">
-    <article class="repo-card">
-        <div class="repo-type">Loading...</div>
-        <h3 class="repo-name">Fetching Repositories</h3>
-        <p class="repo-desc">
-            Loading your latest GitHub projects...
+<section id="github" style="background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="section-inner">
+        <div class="section-eyebrow">GitHub</div>
+        <h2 class="section-title reveal">
+            Personal GitHub Projects
+        </h2>
+        <p class="section-subtitle reveal">
+            Explore my GitHub projects, code repositories, and software solutions showcasing my experience in .NET development, cloud technologies, enterprise applications, and modern software engineering practices.
         </p>
-    </article>
+      </div>
+     <div class="github-controls">
+          <button type="button" id="githubPrev">
+              ◀
+          </button>
+          <button type="button" id="githubNext">
+              ▶
+          </button>
+      </div>
 
-</div>
-  </div>
+        <div class="github-slider-wrapper">
+      <div class="github-grid reveal" id="githubRepos">
+        <article class="repo-card">
+            <div class="repo-type">Loading...</div>
+            <h3 class="repo-name">Fetching Repositories</h3>
+            <p class="repo-desc">
+                Loading your latest GitHub projects...
+            </p>
+        </article>
+        
+    </div>
+   
+      </div>
+     
+<div class="github-grid reveal" id="githubRepos"></div>
+
+    </div>
+
 </section>
-
 <!-- TESTIMONIALS / AWARD -->
 <section id="testimonials">
   <div class="section-inner">
@@ -1915,7 +2047,7 @@ function handleSubmit() {
     (company ? 'Company: ' + company + '\n' : '') +
     '\nMessage:\n' + message
   );
-  window.location.href = 'mailto:anilrathod0209@gmail.com?subject=' + subject + '&body=' + body;
+  window.location.href = 'mailto:anilrathod.ar716@gmail.com?subject=' + subject + '&body=' + body;
   const btn = document.querySelector('.form-submit');
   btn.textContent = 'Opening Email Client ✓';
   btn.style.background = '#16a34a';
@@ -1963,14 +2095,22 @@ document.querySelector('.hero-metrics') && counterObserver.observe(document.quer
 
 const username = "AnilARR";
 
-fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
-.then(response => response.json())
-.then(repos => {
+let allRepos = [];
+let currentPage = 0;
+const pageSize = 6;
+
+function renderRepos() {
 
     const container =
         document.getElementById("githubRepos");
 
     container.innerHTML = "";
+
+    const start = currentPage * pageSize;
+    const end = start + pageSize;
+
+    const repos =
+        allRepos.slice(start, end);
 
     repos.forEach(repo => {
 
@@ -1997,6 +2137,7 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
                     target="_blank">
 
                     View Repository →
+
                 </a>
 
             </div>
@@ -2006,18 +2147,48 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
 
     });
 
-})
-.catch(error => {
+}
 
-    document.getElementById("githubRepos").innerHTML =
-    `
-    <article class="repo-card">
-        <h3>Unable to load repositories</h3>
-    </article>
-    `;
+fetch(
+`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
+)
+.then(response => response.json())
+.then(repos => {
+
+    allRepos = repos;
+
+    renderRepos();
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const prevBtn = document.getElementById("githubPrev");
+    const nextBtn = document.getElementById("githubNext");
+
+    prevBtn?.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        if (currentPage > 0) {
+            currentPage--;
+            renderRepos();
+        }
+
+    });
+
+    nextBtn?.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        if ((currentPage + 1) * pageSize < allRepos.length) {
+            currentPage++;
+            renderRepos();
+        }
+
+    });
+
+});
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
